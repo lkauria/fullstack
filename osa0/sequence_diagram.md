@@ -1,5 +1,6 @@
 
 sequenceDiagram
+```mermaid
     participant browser
     participant server
     
@@ -27,3 +28,4 @@ sequenceDiagram
     activate server
     server-->>browser: [{ "content": "random text", "date": "2024-03-09" }, ... ]
     deactivate server    
+```
