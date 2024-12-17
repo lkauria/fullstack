@@ -21,6 +21,6 @@ sequenceDiagram
     
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
-    server-->>browser: application/json file eg. [{ "content": "random text", "date": "2024-03-09" }, ... ]
+    server-->>browser: application/json file eg. [{ "content": "random text", "date": "2024-03-09" }, ...  ]
     deactivate server  
 ```
