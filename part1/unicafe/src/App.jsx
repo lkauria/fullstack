@@ -16,9 +16,11 @@ const Button = (props) => {
 // this just visualizes statistics, calculation still in Statistics component
 const StatisticsLine = ({ text, value }) => {
   return (
-    <div>
-      {text} {value}
-    </div>
+    <tr>
+      <td>
+        {text} {value}
+      </td>
+    </tr>
   );
 };
 
@@ -29,22 +31,20 @@ const Statistics = (props) => {
   const pos = all === 0 ? 0 : (good / all) * 100;
 
   if (all === 0) {
-    return (
-      <div>
-        No feedback given
-      </div>
-    );
+    return <div>No feedback given</div>;
   }
 
   return (
-    <div>
-      <StatisticsLine text="good" value={good} />
-      <StatisticsLine text="neutral" value={neutral} />
-      <StatisticsLine text="bad" value={bad} />
-      <StatisticsLine text="all" value={all} />
-      <StatisticsLine text="average" value={avg} />
-      <StatisticsLine text="positive" value={`${pos} %`} />
-    </div>
+    <table>
+      <thead>
+        <StatisticsLine text="good" value={good} />
+        <StatisticsLine text="neutral" value={neutral} />
+        <StatisticsLine text="bad" value={bad} />
+        <StatisticsLine text="all" value={all} />
+        <StatisticsLine text="average" value={avg} />
+        <StatisticsLine text="positive" value={`${pos} %`} />
+      </thead>
+    </table>
   );
 };
 
