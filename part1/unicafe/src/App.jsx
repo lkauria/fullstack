@@ -13,20 +13,37 @@ const Button = (props) => {
   return <button onClick={handleClick}>{text}</button>;
 };
 
+// this just visualizes statistics, calculation still in Statistics component
+const StatisticsLine = ({ text, value }) => {
+  return (
+    <div>
+      {text} {value}
+    </div>
+  );
+};
+
 const Statistics = (props) => {
   const { good, neutral, bad } = props;
   const all = good + neutral + bad;
   const avg = all === 0 ? 0 : (good - bad) / all;
-  const pos = all === 0 ? 0 : good / all;
+  const pos = all === 0 ? 0 : (good / all) * 100;
+
+  if (all === 0) {
+    return (
+      <div>
+        No feedback given
+      </div>
+    );
+  }
 
   return (
     <div>
-      <div>good {good}</div>
-      <div>neutral {neutral}</div>
-      <div>bad {bad}</div>
-      <div>all {all}</div>
-      <div>average {avg}</div>
-      <div>positive {pos} %</div>
+      <StatisticsLine text="good" value={good} />
+      <StatisticsLine text="neutral" value={neutral} />
+      <StatisticsLine text="bad" value={bad} />
+      <StatisticsLine text="all" value={all} />
+      <StatisticsLine text="average" value={avg} />
+      <StatisticsLine text="positive" value={`${pos} %`} />
     </div>
   );
 };
