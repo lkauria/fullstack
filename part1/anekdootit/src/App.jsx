@@ -10,10 +10,6 @@ const Button = (props) => (
   </button>
 )
 
-const Votes = (props) => (
-  <p>has {props}</p>
-)
-
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
